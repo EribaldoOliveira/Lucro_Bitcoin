@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Financeiro</title>
+    <link rel="stylesheet" href="css/style.css" />
+  <script src="js/financeiro.js"defer></script>
+</head>
+<body>
+  
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo">CryptoAdmin</div>
+      <ul class="menu">
+        <li><a href="index.html">Criptomoedas</a></li>
+        <li><a href="financeiro.html">Admin Financeiro</a></li>
+        <li><a href="agenda.html">Agenda</a></li>
+        <li><a href="simulador.html">Simulador</a></li>
+      </ul>
+    </nav>
+    
+    <!-- Admin Financeiro -->
+    <section id="financeiro" class="container">
+      <h1>Admin Financeiro</h1>
+      <form id="finance-form">
+        <input id="descricao" placeholder="Descrição" required />
+        <input id="valor" placeholder="Valor (R$)" required />
+        <select id="tipo" required>
+          <option value="">Selecione o Tipo</option>
+          <option value="receita">Receita</option>
+          <option value="despesa">Despesa</option>
+          <option value="investimento">Investimento</option>
+        </select>
+        <button type="submit">Adicionar</button>
+      </form>
+</body>
+</html>

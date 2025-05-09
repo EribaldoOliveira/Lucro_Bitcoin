@@ -1,72 +1,59 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calcule o Valor de Venda para Lucro Desejado</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simulador Bitcoin</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/crypto.js" defer></script>
+
   <script src="js/script.js" defer></script>
 </head>
-<body class="bg-gray-50 font-sans">
-  <div class="max-w-4xl mx-auto p-8">
-    <h1 class="text-4xl font-semibold text-center mb-8">Calcule o Valor de Venda para Lucro Desejado</h1>
-    
-    <div class="bg-white p-6 rounded-lg shadow-lg">
-      <form id="calc-form" class="space-y-4">
-        <!-- Primeira linha de campos -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div>
-            <label for="valor-investido" class="block text-lg font-medium text-gray-700">Valor Investido (R$)</label>
-            <input type="number" id="valor-investido" step="0.01" class="mt-2 p-2 border border-gray-300 rounded w-full" placeholder="Ex: 1000" required>
-          </div>
-          <div>
-            <label for="taxa-compra" class="block text-lg font-medium text-gray-700">Taxa de Compra (%)</label>
-            <input type="number" id="taxa-compra" step="0.01" class="mt-2 p-2 border border-gray-300 rounded w-full" placeholder="Ex: 1 ou 1,5" required>
-          </div>
-        </div>
+<body>
 
-        <!-- Segunda linha de campos -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div>
-            <label for="taxa-venda" class="block text-lg font-medium text-gray-700">Taxa de Venda (%)</label>
-            <input type="number" id="taxa-venda" step="0.01" class="mt-2 p-2 border border-gray-300 rounded w-full" placeholder="Ex: 1 ou 1,5" required>
-          </div>
-          <div>
-            <label for="taxa-ir" class="block text-lg font-medium text-gray-700">Taxa de Imposto de Renda (%)</label>
-            <input type="number" id="taxa-ir" step="0.01" class="mt-2 p-2 border border-gray-300 rounded w-full" placeholder="Ex: 15 ou 20" required>
-          </div>
-        </div>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo">CryptoAdmin</div>
+      <ul class="menu">
+        <li><a href="index.html">Criptomoedas</a></li>
+        <li><a href="financeiro.html">Admin Financeiro</a></li>
+        <li><a href="agenda.html">Agenda</a></li>
+        <li><a href="simulador.html">Simulador</a></li>
+      </ul>
+    </nav>
 
-        <!-- Terceira linha de campos (com Valorização do Bitcoin) -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div>
-            <label for="valorizacao-bitcoin" class="block text-lg font-medium text-gray-700">Valorização Esperada do Bitcoin (%)</label>
-            <input type="number" id="valorizacao-bitcoin" step="0.01" class="mt-2 p-2 border border-gray-300 rounded w-full" placeholder="Ex: 10">
-          </div>
-          <div>
-            <label for="lucro-desejado" class="block text-lg font-medium text-gray-700">Lucro Desejado (R$)</label>
-            <input type="number" id="lucro-desejado" step="0.01" class="mt-2 p-2 border border-gray-300 rounded w-full" placeholder="Ex: 1000,00" required>
-          </div>
-        </div>
-
-        <!-- Botão de enviar -->
-        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded mt-4 hover:bg-blue-600">Calcular</button>
-      </form>
+  <!-- Venda Bitcoin -->
+  <section id="venda" class="container">
+    <h1>Simulador de Venda de Bitcoin</h1>
+    <form id="calc-form">
+      <input id="valor-investido" placeholder="Valor Investido (R$)" required />
+      <input id="taxa-compra" placeholder="Taxa de Compra (%)" required />
+      <input id="taxa-venda" placeholder="Taxa de Venda (%)" required />
+      <input id="taxa-ir" placeholder="Taxa de IR (%)" required />
+      <input id="valorizacao-bitcoin" placeholder="Valorização do BTC (%)" required />
+      <input id="lucro-desejado" placeholder="Lucro Desejado (R$)" required />
+      <button type="submit">Calcular</button>
+    </form>
+    <div id="resultado" class="hidden">
+      <p>Valor de Venda Necessário: <strong id="valor-venda"></strong></p>
     </div>
+  </section>
 
-<!-- Resultados -->
-<div class="flex justify-center mt-8">
-  <div id="resultado" class="hidden text-center">
-    <h2 class="text-2xl font-semibold">Resultado:</h2>
-    <div class="space-y-4 mt-4">
-      <p>
-        <strong>Valor de Venda Necessário (R$):</strong> 
-        R$ <span id="valor-venda"></span>
-      </p>
+  <!-- Saque -->
+  <section id="saque" class="container">
+    <h1>Simulador de Saque</h1>
+    <form id="saque-form">
+      <input id="valor-desejado" placeholder="Valor Líquido Desejado (R$)" required />
+      <input id="taxa-compra-saque" placeholder="Taxa de Compra (%)" required />
+      <input id="taxa-venda-saque" placeholder="Taxa de Venda (%)" required />
+      <input id="taxa-ir-saque" placeholder="Taxa de IR (%)" required />
+      <button type="submit">Calcular</button>
+    </form>
+    <div id="resultado-saque" class="hidden">
+      <p>Valor Bruto Necessário: <strong id="valor-bruto-saque"></strong></p>
     </div>
-  </div>
-</div>
+  </section>
 
-  </div>
+  <button id="back-to-top">↑</button>
 </body>
 </html>
