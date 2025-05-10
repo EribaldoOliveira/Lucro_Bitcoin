@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gerenciador de Tarefas + Calendário</title>
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.js"></script>
+  <script src="js/agenda.js" defer></script>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">CryptoAdmin</div>
+    <ul class="menu">
+      <li><a href="index.html">Criptomoedas</a></li>
+      <li><a href="financeiro.html">Admin Financeiro</a></li>
+      <li><a href="agenda.html">Agenda</a></li>
+      <li><a href="simulador.html">Simulador</a></li>
+    </ul>
+  </nav>
+  
+
+  <!-- Formulário de Tarefa -->
+  <section class="container">
+    <h1>Adicionar Tarefa</h1>
+    <form id="task-form">
+      <input type="text" id="task-desc" placeholder="Descrição da tarefa" required />
+      <input type="date" id="task-date" required />
+      <input type="time" id="task-time" required />
+      <button type="submit">Adicionar</button>
+    </form>
+  </section>
+
+<!-- Lista de Tarefas -->
+<section class="container">
+  <h1>Lista de Tarefas</h1>
+  <ul id="task-list">
+    <li>
+      <div class="task-info">
+        <span class="task-desc">Tarefa Exemplo</span>
+        <span class="task-date">2025-05-09</span>
+        <span class="task-time">10:00</span>
+      </div>
+      <div class="task-actions">
+        <button class="edit-btn">Editar</button>
+        <button class="delete-btn">Deletar</button>
+      </div>
+    </li>
+  </ul>
+  
+</section>
+
+
+  <!-- Calendário -->
+  <section class="container">
+    <h1>Calendário</h1>
+    <div id="calendar"></div>
+  </section>
+
+  <!-- Botão Voltar ao Topo -->
+  <button id="back-to-top" title="Voltar ao topo">↑</button>
+</body>
+</html>

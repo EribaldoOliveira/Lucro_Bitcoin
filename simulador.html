@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simulador de Conversão de Reais para Bitcoin</title>
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/simulador.js" defer></script>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">CryptoAdmin</div>
+    <ul class="menu">
+      <li><a href="index.html">Criptomoedas</a></li>
+      <li><a href="financeiro.html">Admin Financeiro</a></li>
+      <li><a href="agenda.html">Agenda</a></li>
+      <li><a href="simulador.html">Simulador</a></li>
+    </ul>
+  </nav>
+
+  <!-- Simulador de Bitcoin -->
+  <section id="Simulador" class="container">
+    <h1>Simulador de Conversão de Reais para Bitcoin</h1>
+    <form id="form-conversao">
+      <div>
+        <label for="valor-caixa">Valor em Caixa (R$):</label>
+        <input type="number" id="valor-caixa" placeholder="Quanto você depositou na Bipa?" />
+      </div>
+
+      <div>
+        <label for="btc-comprado">BTC comprado:</label>
+        <input type="number" id="btc-comprado" placeholder="Quantos BTC você comprou?" step="0.000001" />
+      </div>
+
+      <div>
+        <label for="valor-bitcoin">Valor em Bitcoin com valor atual:</label>
+        <input type="text" id="valor-bitcoin" readonly />
+      </div>
+    </form>
+
+    <div>
+      <strong>Valor Atual (R$):</strong> <span id="valor-atualizado">--</span>
+    </div>
+
+    <div>
+      <strong>Lucro/Prejuízo:</strong> <span id="lucro-prejuizo">--</span>
+    </div>
+
+    <div id="error-message" class="hidden">Erro ao buscar a cotação do Bitcoin.</div>
+  </section>
+
+  <!-- Gráfico -->
+  <section class="container">
+    <h1>Gráfico da Cotação</h1>
+    <canvas id="grafico-btc" height="100"></canvas>
+  </section>
+
+  <!-- Botão Voltar ao Topo -->
+  <button id="back-to-top" title="Voltar ao topo">↑</button>
+
+</body>
+</html>

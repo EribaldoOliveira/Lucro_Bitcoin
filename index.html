@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Simulador Bitcoin</title>
   <link rel="stylesheet" href="css/style.css" />
+<<<<<<< HEAD
   <script src="js/script.js" defer></script>
 </head>
 <body>
@@ -42,5 +43,57 @@
     </section>
   </main>
 
+=======
+  <script src="js/crypto.js" defer></script>
+
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo">CryptoAdmin</div>
+      <ul class="menu">
+        <li><a href="index.html">Criptomoedas</a></li>
+        <li><a href="financeiro.html">Admin Financeiro</a></li>
+        <li><a href="agenda.html">Agenda</a></li>
+        <li><a href="simulador.html">Simulador</a></li>
+      </ul>
+    </nav>
+
+  <!-- Venda Bitcoin -->
+  <section id="venda" class="container">
+    <h1>Simulador de Venda de Bitcoin</h1>
+    <form id="calc-form">
+      <input id="valor-investido" placeholder="Valor Investido (R$)" required />
+      <input id="taxa-compra" placeholder="Taxa de Compra (%)" required />
+      <input id="taxa-venda" placeholder="Taxa de Venda (%)" required />
+      <input id="taxa-ir" placeholder="Taxa de IR (%)" required />
+      <input id="valorizacao-bitcoin" placeholder="Valorização do BTC (%)" required />
+      <input id="lucro-desejado" placeholder="Lucro Desejado (R$)" required />
+      <button type="submit">Calcular</button>
+    </form>
+    <div id="resultado" class="hidden">
+      <p>Valor de Venda Necessário: <strong id="valor-venda"></strong></p>
+    </div>
+  </section>
+
+  <!-- Saque -->
+  <section id="saque" class="container">
+    <h1>Simulador de Saque</h1>
+    <form id="saque-form">
+      <input id="valor-desejado" placeholder="Valor Líquido Desejado (R$)" required />
+      <input id="taxa-compra-saque" placeholder="Taxa de Compra (%)" required />
+      <input id="taxa-venda-saque" placeholder="Taxa de Venda (%)" required />
+      <input id="taxa-ir-saque" placeholder="Taxa de IR (%)" required />
+      <button type="submit">Calcular</button>
+    </form>
+    <div id="resultado-saque" class="hidden">
+      <p>Valor Bruto Necessário: <strong id="valor-bruto-saque"></strong></p>
+    </div>
+  </section>
+
+  <button id="back-to-top">↑</button>
+>>>>>>> c78ecd00e55370685eee21cb04b3489e3c5e18c2
 </body>
 </html>
