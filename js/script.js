@@ -1,23 +1,46 @@
+// Utilitário: converte string para número, removendo ponto de milhar e usando vírgula como decimal
+function parseValor(valor) {
+  return parseFloat(valor.replace(/\./g, '').replace(',', '.')) || 0;
+}
 
-    document.getElementById('calc-form').addEventListener('submit', function(e) {
-      e.preventDefault();
+// FORMULÁRIO 1
+document.getElementById('calc-form').addEventListener('submit', function (e) {
+  e.preventDefault();
 
-      // Coleta os valores dos campos
-      const valorInvestido = parseFloat(document.getElementById('valor-investido').value);
-      const taxaCompra = parseFloat(document.getElementById('taxa-compra').value) / 100;
-      const taxaVenda = parseFloat(document.getElementById('taxa-venda').value) / 100;
-      const taxaIR = parseFloat(document.getElementById('taxa-ir').value) / 100;
-      const valorizacaoBitcoin = parseFloat(document.getElementById('valorizacao-bitcoin').value) / 100;
-      const lucroDesejado = parseFloat(document.getElementById('lucro-desejado').value);
+  const valorInvestido = parseValor(document.getElementById('valor-investido').value);
+  const taxaCompra = parseValor(document.getElementById('taxa-compra').value) / 100;
+  const taxaVenda = parseValor(document.getElementById('taxa-venda').value) / 100;
+  const taxaIR = parseValor(document.getElementById('taxa-ir').value) / 100;
+  const valorizacao = parseValor(document.getElementById('valorizacao-bitcoin').value) / 100;
+  const lucroDesejado = parseValor(document.getElementById('lucro-desejado').value);
 
-      // Calcula o valor de venda necessário
-      const valorCompraComTaxa = valorInvestido * (1 + taxaCompra); // Inclui taxa de compra
-      const valorVendaComTaxa = valorCompraComTaxa * (1 + taxaVenda); // Inclui taxa de venda
-      const valorVendaFinal = valorVendaComTaxa * (1 + valorizacaoBitcoin); // Valorização do Bitcoin
-      const valorFinalComImposto = valorVendaFinal * (1 - taxaIR); // Deduz imposto de renda
-      const valorVendaNecessario = valorFinalComImposto + lucroDesejado; // Adiciona lucro desejado
+  const valorCompraComTaxa = valorInvestido * (1 + taxaCompra);
+  const valorVendaComTaxa = valorCompraComTaxa * (1 + taxaVenda);
+  const valorFinal = valorVendaComTaxa * (1 + valorizacao);
+  const valorFinalComImposto = valorFinal * (1 - taxaIR);
+  const valorVendaNecessario = valorFinalComImposto + lucroDesejado;
 
-      // Exibe o resultado
-      document.getElementById('resultado').classList.remove('hidden');
-      document.getElementById('valor-venda').textContent = valorVendaNecessario.toFixed(2);
-    });
+  document.getElementById('valor-venda').textContent = valorVendaNecessario.toLocaleString('pt-BR', {
+    style: 'currency',
+    currency: 'BRL'
+  });
+  document.getElementById('resultado').classList.remove('hidden');
+});
+
+// FORMULÁRIO 2
+document.getElementById('saque-form').addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  const valorDesejado = parseValor(document.getElementById('valor-desejado').value);
+  const taxaCompra = parseValor(document.getElementById('taxa-compra-saque').value) / 100;
+  const taxaVenda = parseValor(document.getElementById('taxa-venda-saque').value) / 100;
+  const taxaIR = parseValor(document.getElementById('taxa-ir-saque').value) / 100;
+
+  const valorBruto = valorDesejado / ((1 - taxaCompra) * (1 - taxaVenda) * (1 - taxaIR));
+
+  document.getElementById('valor-bruto-saque').textContent = valorBruto.toLocaleString('pt-BR', {
+    style: 'currency',
+    currency: 'BRL'
+  });
+  document.getElementById('resultado-saque').classList.remove('hidden');
+});
