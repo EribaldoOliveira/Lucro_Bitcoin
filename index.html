@@ -5,63 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Simulador Bitcoin</title>
   <link rel="stylesheet" href="css/style.css" />
-<<<<<<< HEAD
-  <script src="js/script.js" defer></script>
-</head>
-<body>
-  <main>
-    <!-- PROJETO 1: Valor de Venda Necessário -->
-    <section class="container">
-      <h2>Valor de Venda Necessário</h2>
-      <form id="calc-form">
-        <input type="text" id="valor-investido" placeholder="Valor investido (R$)" />
-        <input type="text" id="taxa-compra" placeholder="Taxa de compra (%)" />
-        <input type="text" id="taxa-venda" placeholder="Taxa de venda (%)" />
-        <input type="text" id="taxa-ir" placeholder="Taxa de IR (%)" />
-        <input type="text" id="valorizacao-bitcoin" placeholder="Valorização do Bitcoin (%)" />
-        <input type="text" id="lucro-desejado" placeholder="Lucro desejado (R$)" />
-        <button type="submit">Calcular</button>
-      </form>
-      <div id="resultado" class="hidden">
-        <p>Você precisará vender por: <strong id="valor-venda"></strong></p>
-      </div>
-    </section>
-
-    <!-- PROJETO 2: Simulador de Saque -->
-    <section class="container">
-      <h2>Simulador de Saque</h2>
-      <form id="saque-form">
-        <input type="text" id="valor-desejado" placeholder="Valor desejado (R$)" />
-        <input type="text" id="taxa-compra-saque" placeholder="Taxa de compra (%)" />
-        <input type="text" id="taxa-venda-saque" placeholder="Taxa de venda (%)" />
-        <input type="text" id="taxa-ir-saque" placeholder="Taxa de IR (%)" />
-        <button type="submit">Calcular</button>
-      </form>
-      <div id="resultado-saque" class="hidden">
-        <p>Você deve solicitar: <strong id="valor-bruto-saque"></strong></p>
-      </div>
-    </section>
-  </main>
-
-=======
   <script src="js/crypto.js" defer></script>
-
   <script src="js/script.js" defer></script>
 </head>
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar">
-      <div class="logo">CryptoAdmin</div>
-      <ul class="menu">
-        <li><a href="index.html">Criptomoedas</a></li>
-        <li><a href="financeiro.html">Admin Financeiro</a></li>
-        <li><a href="agenda.html">Agenda</a></li>
-        <li><a href="simulador.html">Simulador</a></li>
-      </ul>
-    </nav>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">CryptoAdmin</div>
+    <ul class="menu">
+      <li><a href="index.html">Criptomoedas</a></li>
+      <li><a href="financeiro.html">Admin Financeiro</a></li>
+      <li><a href="agenda.html">Agenda</a></li>
+      <li><a href="simulador.html">Simulador</a></li>
+    </ul>
+  </nav>
 
-  <!-- Venda Bitcoin -->
+  <!-- Simulador de Venda de Bitcoin -->
   <section id="venda" class="container">
     <h1>Simulador de Venda de Bitcoin</h1>
     <form id="calc-form">
@@ -78,7 +38,7 @@
     </div>
   </section>
 
-  <!-- Saque -->
+  <!-- Simulador de Saque -->
   <section id="saque" class="container">
     <h1>Simulador de Saque</h1>
     <form id="saque-form">
@@ -93,7 +53,8 @@
     </div>
   </section>
 
+  <!-- Back to top button -->
   <button id="back-to-top">↑</button>
->>>>>>> c78ecd00e55370685eee21cb04b3489e3c5e18c2
+
 </body>
 </html>
