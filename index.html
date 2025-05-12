@@ -53,6 +53,27 @@
     </div>
   </section>
 
+  <!-- Simulador de Compra e Venda de Bitcoin -->
+<section id="simulador-compra-venda" class="container">
+  <h1>Simulador de Compra e Venda de Bitcoin</h1>
+  <form id="compra-venda-form">
+    <input id="valor-compra" placeholder="Valor de Compra (R$)" required />
+    <input id="valor-venda" placeholder="Valor de Venda (R$)" required />
+    <input id="taxa-compra-simulador" placeholder="Taxa de Compra (%)" required />
+    <input id="taxa-venda-simulador" placeholder="Taxa de Venda (%)" required />
+    <input id="valor-bitcoin" placeholder="Valor do Bitcoin (R$)" required />
+    <button type="submit">Simular Transação</button>
+  </form>
+  <div id="resultado-transacao" class="hidden">
+    <p>Resultado da Transação:</p>
+    <p>Data: <strong id="data-transacao"></strong></p>
+    <p>Valor de Compra: <strong id="compra-valor"></strong> R$</p>
+    <p>Valor de Venda: <strong id="venda-valor"></strong> R$</p>
+    <p>Lucro/Prejuízo: <strong id="lucro"></strong> R$</p>
+  </div>
+</section>
+
+
   <!-- Back to top button -->
   <button id="back-to-top">↑</button>
 

@@ -121,3 +121,42 @@ button:hover {
     margin: 10px 0;
   }
 }
+
+/* Simulador de Compra e Venda */
+#simulador-compra-venda {
+  background: #2c2c2c;
+  padding: 2rem;
+  margin: 2rem 0;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #00000055;
+}
+#simulador-compra-venda h1 {
+  color: #ffa94d;
+}
+form input,
+form button {
+  flex: 1 1 200px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+}
+form button {
+  background: #f7931a;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+form button:hover {
+  background: #cc7512;
+}
+#resultado-transacao {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+}
+#resultado-transacao p {
+  margin: 5px 0;
+  font-size: 1.1rem;
+  color: #ff9900;
+}
